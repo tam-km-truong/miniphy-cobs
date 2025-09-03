@@ -112,7 +112,7 @@ rule run_COBS:
         reordered_assembly_dir = rules.reorder_genomes.output.reordered_assemblies_dir
     output:
         COBS_out_dir = directory(f"{config['output_dir']}/COBS_out/{{order_name}}")
-    threads: 8
+    threads: config['threads']
     resources:
         mem_mb=lambda wildcards, attempt: attempt * 16000
     log:
